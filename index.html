@@ -1,0 +1,74 @@
+<html style="height: 100%; width: 100%; margin: 0">
+
+<head>
+    <title>Clio App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <style type="text/css">
+        html {
+            font-family: sans-serif;
+            --track-width: 10px;
+            --thumb-height: 36px;
+            --thumb-width: 62px;
+            --bad-background: #C00;
+            --ok-background: #FD0;
+            --ideal-background: #0B5;
+        }
+
+        #popup {
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            top: 2%;
+            left: 5%;
+            background-color: #113;
+            border: 2px solid #AAA;
+            overflow: auto;
+            display: none;
+        }
+
+        a {
+            color: white;
+        }
+
+        a:visited {
+            color: white;
+        }
+    </style>
+    <script>
+        window.onresize = resize;
+
+        function resize() {
+        }
+
+        function btn1(show) {
+            document.getElementById('popup').style.display = show ? 'block' : 'none';
+        }
+
+        window.addEventListener('load', () => {
+            resize();
+        });
+
+        document.addEventListener("visibilitychange", function () {
+            if (document.visibilityState === 'visible') {
+                // render_greys();
+            }
+        });
+
+    </script>
+</head>
+
+<body style="margin: 0; background-color: rgb(255, 179, 252); color: rgb(162, 1, 122); overflow:hidden;">
+    <h1>Clio App</h1>
+    <button onclick="btn1(true)">click me!</button>
+
+    <div id="popup">
+        <div style="margin: 2ex;">
+            <h2>Wow!</h2>
+            <p>YOU CLICKED ME!</p>
+            <button onclick="btn1(false)">ok</button>
+        </div>
+    </div>
+</body>
+
+</html>
